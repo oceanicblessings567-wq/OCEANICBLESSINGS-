@@ -1,0 +1,28 @@
+{
+  "project": "Ω∞v",
+  "version": "0.1.0",
+  "status": "scaffolded",
+  "modules": [
+    "charter",
+    "brand",
+    "oceanicos",
+    "compiler",
+    "oceanic-ir",
+    "adapters",
+    "verification",
+    "attestation",
+    "authorization",
+    "runtime",
+    "observer",
+    "ledger",
+    "fallback",
+    "vaas",
+    "evolution",
+    "audits",
+    "continuity"
+  ],
+  "core": {
+    "language": "python",
+    "entrypoint": "cli.py"
+  }
+}

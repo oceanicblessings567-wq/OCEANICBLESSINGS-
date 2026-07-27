@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ω∞v Full Stack Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+    textarea, input { width: 100%; padding: 0.75rem; margin: 0.5rem 0; }
+    button { padding: 0.75rem 1.25rem; }
+    pre { background: #111; color: #d6d6d6; padding: 1rem; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>Ω∞v Full Stack Demo</h1>
+  <p>Enter an intent and evidence, then run the end-to-end flow.</p>
+  <label>
+    Intent
+    <textarea id="intent" rows="3">Observe the system</textarea>
+  </label>
+  <label>
+    Evidence
+    <textarea id="evidence" rows="3">runtime signal present</textarea>
+  </label>
+  <label>
+    <input type="checkbox" id="consent" checked /> Human consent granted
+  </label>
+  <button id="run">Run Ω∞v</button>
+  <h2>Result</h2>
+  <pre id="output">Awaiting execution...</pre>
+
+  <script>
+    async function runFlow() {
+      const intent = document.getElementById('intent').value;
+      const evidence = document.getElementById('evidence').value;
+      const consent = document.getElementById('consent').checked;
+
+      const res = await fetch('/api/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ intent, evidence, consent }),
+      });
+
+      const payload = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(payload, null, 2);
+    }
+
+    document.getElementById('run').addEventListener('click', runFlow);
+  </script>
+</body>
+</html>

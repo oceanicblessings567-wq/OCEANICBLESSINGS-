@@ -1,0 +1,13 @@
+[project]
+name = "oceanicblessings"
+version = "0.1.0"
+description = "A minimal Ω∞v ecosystem scaffold"
+requires-python = ">=3.10"
+dependencies = ["pytest>=8.0.0"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+omega = "cli:main"
