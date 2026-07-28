@@ -1,8 +1,31 @@
 {
   "project": "Ω∞v",
-  "version": "0.1.0",
-  "status": "scaffolded",
+  "symbol": "💧",
+  "version": "0.2.0",
+  "status": "active",
+  "seed": "MASTER_PROMPT.md",
+  "canonical_layers": [
+    "00_ZERO",
+    "01_CHARTER",
+    "02_BRAND",
+    "03_OCEANICOS",
+    "04_OMEGA_COMPILER",
+    "05_OCEANIC_IR",
+    "06_VERIFICATION",
+    "07_ATTESTATION",
+    "08_AUTHORIZATION",
+    "09_RUNTIME",
+    "10_OBSERVER",
+    "11_LEDGER",
+    "12_VaaS",
+    "13_EVOLUTION",
+    "14_DRIFT_AUDITS",
+    "15_CONTINUITY",
+    "16_TESTS",
+    "17_DOCS"
+  ],
   "modules": [
+    "00_ZERO",
     "charter",
     "brand",
     "oceanicos",
@@ -23,6 +46,12 @@
   ],
   "core": {
     "language": "python",
-    "entrypoint": "cli.py"
-  }
+    "package": "omega",
+    "entrypoint": "cli.py",
+    "server": "web/server.py"
+  },
+  "adapters": [
+    "python",
+    "javascript"
+  ]
 }

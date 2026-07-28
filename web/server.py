@@ -18,7 +18,18 @@ from omega import (
     observe,
     record_event,
     continuity_summary,
+    CompilerEngine,
+    calculate_hesitation_score,
+    issue_proof_token,
+    audit_drift,
+    fallback_execution,
+    run_drift_audit,
+    propose_evolution,
 )
+
+compiler_engine = CompilerEngine()
+proof_store: dict[str, dict] = {}
+event_history: list[dict] = []
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -29,6 +40,14 @@ class Handler(BaseHTTPRequestHandler):
 
         if self.path == "/api/continuity":
             self.send_json(continuity_summary())
+            return
+
+        if self.path == "/api/vaas/proof":
+            self.send_json({"proofs": list(proof_store.values()), "count": len(proof_store)})
+            return
+
+        if self.path == "/api/audit":
+            self.send_json(run_drift_audit(event_history))
             return
 
         if self.path.endswith(".js"):
@@ -44,18 +63,32 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(body, indent=2).encode("utf-8"))
 
     def do_POST(self) -> None:
-        if self.path != "/api/run":
-            self.send_error(404, "Not Found")
+        if self.path == "/api/run":
+            self.handle_run()
+            return
+        elif self.path == "/api/vaas/verify":
+            self.handle_vaas_verify()
+            return
+        elif self.path == "/api/fallback":
+            self.handle_fallback()
             return
 
+        self.send_error(404, "Not Found")
+
+    def handle_run(self) -> None:
         length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(length)
-        payload = json.loads(body.decode("utf-8"))
+        payload = json.loads(body.decode("utf-8")) if body else {}
 
-        ir = compile_intent(payload.get("intent", ""), evidence=payload.get("evidence", ""))
+        intent = payload.get("intent", "")
+        evidence = payload.get("evidence", "")
+        target = payload.get("target", "python")
+        consent = payload.get("consent", False)
+
+        ir = compiler_engine.compile(intent=intent, evidence=evidence, target=target)
         verification = verify_ir(ir)
         attestation = attest(ir, verification)
-        authorization = authorize(attestation, consent=payload.get("consent", False))
+        authorization = authorize(attestation, consent=consent)
         execution = execute(ir, authorization)
         observation = observe(execution, ir)
 
@@ -67,6 +100,7 @@ class Handler(BaseHTTPRequestHandler):
             record_event("execution_result", execution),
             record_event("observation_result", observation),
         ]
+        event_history.extend(events)
 
         response = {
             "ir": ir,
@@ -77,11 +111,54 @@ class Handler(BaseHTTPRequestHandler):
             "observation": observation,
             "ledger": events,
         }
+        self.send_json(response)
 
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.end_headers()
-        self.wfile.write(json.dumps(response, indent=2).encode("utf-8"))
+    def handle_vaas_verify(self) -> None:
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length)
+        payload = json.loads(body.decode("utf-8")) if body else {}
+
+        intent = payload.get("intent", "")
+        evidence = payload.get("evidence", "")
+        target = payload.get("target", "python")
+
+        ir = compiler_engine.compile(intent=intent, evidence=evidence, target=target)
+        verification = verify_ir(ir)
+        attestation = attest(ir, verification)
+
+        hesitation = calculate_hesitation_score(ir, verification)
+        proof = issue_proof_token(ir, verification, attestation)
+        
+        authorization = authorize(attestation, consent=True)
+        execution = execute(ir, authorization)
+        observation = observe(execution, ir)
+        drift = audit_drift(ir, observation)
+        evolution = propose_evolution(observation, drift)
+
+        proof_store[proof["token_id"]] = proof
+
+        response = {
+            "ir": ir,
+            "verification": verification,
+            "attestation": attestation,
+            "hesitation": hesitation,
+            "proof_token": proof,
+            "drift_audit": drift,
+            "evolution_proposal": evolution,
+            "status": "success",
+        }
+        self.send_json(response)
+
+    def handle_fallback(self) -> None:
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length)
+        payload = json.loads(body.decode("utf-8")) if body else {}
+
+        intent = payload.get("intent", "")
+        ir = compiler_engine.compile(intent=intent, evidence=payload.get("evidence", ""))
+        fallback_res = fallback_execution(ir, reason=payload.get("reason", "offline"))
+
+        self.send_json({"ir": ir, "fallback": fallback_res, "status": "fallback_applied"})
 
     def serve_file(self, filename: str, content_type: str) -> None:
         root = Path(__file__).resolve().parent

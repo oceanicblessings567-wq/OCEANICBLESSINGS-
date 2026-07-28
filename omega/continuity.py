@@ -13,6 +13,7 @@ ARTIFACT_PATHS = {
     "charter": ROOT / "CHARTER.md",
     "doctrine": ROOT / "DOCTRINE.md",
     "brand_charter": ROOT / "brand" / "charter.md",
+    "master_prompt": ROOT / "MASTER_PROMPT.md",
 }
 
 
@@ -36,6 +37,7 @@ def verify_continuity_artifacts() -> Dict[str, Any]:
     keywords = {
         "charter": ["living agnostic", "evidence before certainty", "human consent"],
         "continuity_pack": ["continue from the latest verified state", "preserve the living charter"],
+        "master_prompt": ["observe", "verify", "evolve", "blessings in disguise"],
     }
 
     keyword_checks: Dict[str, Dict[str, bool]] = {}
