@@ -10,6 +10,7 @@ from omega import (
     calculate_hesitation_score,
     issue_proof_token,
     audit_drift,
+    run_vaas_benchmark,
 )
 
 
@@ -41,3 +42,11 @@ def test_audit_drift():
 
     assert drift["drift_detected"] is False
     assert drift["status"] == "in_alignment"
+
+
+def test_run_vaas_benchmark():
+    benchmark = run_vaas_benchmark(iterations=5)
+
+    assert benchmark["iterations_completed"] == 5
+    assert "avg_hesitation_score" in benchmark
+    assert "hesitation_posture_breakdown" in benchmark

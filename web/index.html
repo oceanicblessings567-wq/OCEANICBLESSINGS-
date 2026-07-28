@@ -272,9 +272,10 @@
           </div>
         </div>
         <label>Latest Issued Proof Token</label>
-        <div id="proof-token-display" style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #38bdf8;">
+        <div id="proof-token-display" style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #38bdf8; margin-bottom: 1rem;">
           No proof token issued yet.
         </div>
+        <button class="btn-secondary" id="run-benchmark" style="width: 100%;">Run VaaS Benchmark Harness</button>
       </div>
     </div>
 
@@ -358,6 +359,12 @@
       document.getElementById('output').textContent = JSON.stringify(data, null, 2);
     }
 
+    async function runBenchmark() {
+      const res = await fetch('/api/vaas/benchmark');
+      const data = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+
     async function checkContinuity() {
       const res = await fetch('/api/continuity');
       const data = await res.json();
@@ -373,6 +380,7 @@
     document.getElementById('run-pipeline').addEventListener('click', runPipeline);
     document.getElementById('vaas-verify').addEventListener('click', executeVaas);
     document.getElementById('run-fallback').addEventListener('click', executeFallback);
+    document.getElementById('run-benchmark').addEventListener('click', runBenchmark);
     document.getElementById('check-continuity').addEventListener('click', checkContinuity);
     document.getElementById('check-audit').addEventListener('click', runAudit);
   </script>

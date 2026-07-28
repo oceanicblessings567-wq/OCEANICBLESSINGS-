@@ -11,6 +11,7 @@ from .vaas import calculate_hesitation_score, issue_proof_token, audit_drift
 from .evolution import propose_evolution, apply_evolution
 from .fallback import fallback_execution
 from .audits import run_drift_audit
+from .benchmarks import run_vaas_benchmark
 
 __all__ = [
     "compile_intent",
@@ -33,4 +34,5 @@ __all__ = [
     "apply_evolution",
     "fallback_execution",
     "run_drift_audit",
+    "run_vaas_benchmark",
 ]

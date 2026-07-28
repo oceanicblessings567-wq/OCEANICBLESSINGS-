@@ -25,6 +25,7 @@ from omega import (
     fallback_execution,
     run_drift_audit,
     propose_evolution,
+    run_vaas_benchmark,
 )
 
 compiler_engine = CompilerEngine()
@@ -44,6 +45,10 @@ class Handler(BaseHTTPRequestHandler):
 
         if self.path == "/api/vaas/proof":
             self.send_json({"proofs": list(proof_store.values()), "count": len(proof_store)})
+            return
+
+        if self.path == "/api/vaas/benchmark":
+            self.send_json(run_vaas_benchmark(iterations=12))
             return
 
         if self.path == "/api/audit":
