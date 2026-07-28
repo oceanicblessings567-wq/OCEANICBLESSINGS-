@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Ω∞v VaaS Verification",
+  "version": "0.2.0",
+  "description": "Proof-backed decision infrastructure & hesitation scoring for browser intents.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Ω∞v Verification"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*"
+  ]
+}
