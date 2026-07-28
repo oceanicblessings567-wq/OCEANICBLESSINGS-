@@ -1,9 +1,10 @@
 [project]
 name = "oceanicblessings"
-version = "0.1.0"
-description = "A minimal Ω∞v ecosystem scaffold"
+version = "0.2.0"
+description = "Ω∞v — Living Intelligence & Verification Ecosystem"
+readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["pytest>=8.0.0"]
+dependencies = []
 
 [build-system]
 requires = ["setuptools>=61"]

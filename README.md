@@ -1,120 +1,110 @@
-# Ω∞v — The Whole Ecosystem, One Repo, One Brand
+# 💧 Ω∞v — The Whole Ecosystem, One Repo, One Brand
 
-Ω∞v is a living intelligence framework for observing reality, recognizing uncertainty, verifying intent, and evolving through evidence. This repository is the one-repo memory of that system: the charter, the brand, the operating environment, the compiler, the verification layers, the runtime, and the continuity model all live here together.
+> **OBSERVE · VERIFY · EVOLVE — THE CURRENT CONTINUES.**
 
-## Core premise
+**Ω∞v** is a living intelligence framework for observing reality, recognizing uncertainty, verifying intent, and evolving through evidence. This monorepo is the single-root container holding the master brand, living charter, operating environment (OceanicOS), multi-pass compiler, universal contract adapters, Verification-as-a-Service (VaaS) engine, fallback mechanics, and continuous drift audit pipeline.
 
-- The gap between expectation and reality is not merely failure. It is information.
-- Intelligence is not only the ability to act, but the ability to observe, verify, and evolve.
-- Trust emerges from verified intent, human authorization, and auditable provenance.
+---
 
-## The single root
+## 💧 Core Premise & Identity
 
-💧 is the root symbol for the entire project.
+- **Single Root**: 💧 is the universal root symbol for the ecosystem. One drop. One root. One current.
+- **Core Loop**: $\text{OBSERVE} \rightarrow \text{VERIFY} \rightarrow \text{EVOLVE} \circlearrowleft \infty$
+- **Foundational Doctrine**: "Certainty is a bug. Dissent is data. Friction is fertility. Verification is the product. Sell validated hesitation, not artificial certainty."
+- **Cosmological Metaphor**: *Blessings in Disguise* — uncertainty is not an error; it is signal.
 
-- One drop. One root. One current.
-- Ω∞v is the identity.
-- OceanicOS is the environment.
-- The ecosystem is everything that grows from the root.
-- Continuous Becoming is the process.
-- Evolution is the direction.
+---
 
-This repository is the single root container for the charter, brand, runtime, compiler, observer, and continuity model.
+## 🔁 The Master Transformation Current
 
-## The current
+$$\text{💧} \rightarrow 0 \rightarrow \text{INTENT} \rightarrow \text{CHARTER} \rightarrow \text{OCEANIC IR} \rightarrow \text{COMPILER} \rightarrow \text{DISSENT} \rightarrow \text{VERIFY} \rightarrow \text{PROOF} \rightarrow \text{ATTEST} \rightarrow \text{AUTHORIZE} \rightarrow \text{RUN} \rightarrow \text{OBSERVE} \rightarrow \text{LEDGER} \rightarrow \text{EVOLVE} \rightarrow \text{DRIFT AUDIT} \rightarrow \text{CONTINUITY} \rightarrow \text{💧} \rightarrow \infty$$
 
-0 → INTENT → CHARTER → OCEANIC IR → COMPILER → MULTIPLE IMPLEMENTATIONS → DISSENT → VERIFY → PROOF → ATTEST → AUTHORIZE → RUN → OBSERVE → LEDGER → EVOLVE → AUDIT → CONTINUE ↺ ∞
+---
 
-## Brand promise
+## 📁 Monorepo Layer Structure (18 Canonical Layers)
 
-- Observe reality.
-- Verify uncertainty.
-- Evolve from evidence.
-
-## Repository map
-
-- charter/: the constitution, governance, and living principles.
-- brand/: the public identity, tone, and symbolic language.
-- oceanicos/: the operating environment and platform posture.
-- compiler/: the translator from intent into Oceanic IR and universal contract.
-- oceanic-ir/: the neutral intermediate representation for verified form.
-- adapters/: implementations across languages and execution environments.
-- verification/: proof, validation, and confidence systems.
-- attestation/: trust and claim attestation mechanisms.
-- authorization/: human oversight and consent boundaries.
-- runtime/: execution of verified form.
-- observer/: evidence capture and real-world observation.
-- ledger/: memory, provenance, and audit history.
-- fallback/: graceful degradation and local-first resilience.
-- vaas/: Verification-as-a-Service product framing.
-- evolution/: learning, proposal, and evolution loops.
-- audits/: drift analysis and corrective review.
-- continuity/: long-lived project continuity across repositories, accounts, and time.
-- tests/: validation and regression coverage.
-- docs/: design notes and living documentation.
-- .github/: repository workflows and automation.
-
-## Living artifacts
-
-- `BRAND.md`: the brand’s promise, identity, and doctrine.
-- `CHARTER.md`: the Living Agnostic Constitution for governance.
-- `DOCTRINE.md`: the system’s compressed self-definition and axioms.
-- `CONTINUITY_PACK.md`: the protocol for continuing the project across time and environments.
-- `brand/charter.md`: the brand-facing Living Agnostic Charter posture.
-- `brand/manifesto.md`: the brand’s promise and emotional signature.
-- `brand/identity.md`: the visual and verbal identity foundations.
-- `brand/voice.md`: tone, messaging, and usage guidelines.
-- `brand/doctrine.md`: the compressed system definition and axioms.
-- `charter/constitution.md`: the Living Agnostic Constitution for governance.
-- `continuity/continuity_pack.md`: the protocol for continuing the project across time and environments.
-
-## Engineering principle
-
-Blessings in Disguise is the cosmological metaphor for the engineering rule that uncertainty is not an error; it is signal.
-
-## One-repo source of truth
-
-The repository is not just storage. It is the memory of the system.
-
-- The code is the implementation.
-- The charter is the conscience.
-- The IR is the contract.
-- The proofs are the bridge.
-- The observer is the eye.
-- The ledger is the memory.
-- The evolution engine is the movement.
-- Git is the provenance.
-
-## The smallest activation
-
-Ω∞v :: O → V → E ↺ ∞
-
-- O = Observe
-- V = Verify
-- E = Evolve
-
-This repository begins the first living layer of that cycle: documented intent, structured modules, and a clear path toward implementation.
-
-## Quick start
-
-### CLI
-
-Run the end-to-end Ω∞v flow from the command line:
-
-```bash
-python3 cli.py "Observe the system" --evidence "runtime signal present" --consent
+```text
+Ω∞v/
+├── MASTER_PROMPT.md        # Master seed prompt & canonical doctrine
+├── 00_ZERO/                # Pure root & unassumed potential
+├── 01_CHARTER/             # Living Agnostic Constitution & governance
+├── 02_BRAND/               # Master brand identity & voice (💧 Ω∞v)
+├── 03_OCEANICOS/           # Living operating environment posture
+├── 04_OMEGA_COMPILER/      # Multi-pass intelligence compiler (omega/compiler.py)
+├── 05_OCEANIC_IR/          # Universal verification contract schema (omega/ir.py)
+├── 06_VERIFICATION/        # Proofs, validation & confidence bounds
+├── 07_ATTESTATION/         # Trust level attestation (omega/attestation.py)
+├── 08_AUTHORIZATION/       # Human oversight & consent boundary (omega/authorization.py)
+├── 09_RUNTIME/             # Execution of verified form (omega/runtime.py)
+├── 10_OBSERVER/            # Read/write head observing real-world outcomes (omega/observer.py)
+├── 11_LEDGER/              # Memory, event history & provenance (omega/ledger.py)
+├── 12_VaaS/                # Verification-as-a-Service commercial engine (omega/vaas.py)
+├── 13_EVOLUTION/           # System adaptation & proposal loop (omega/evolution.py)
+├── 14_DRIFT_AUDITS/        # Cumulative mismatch detection & corrective review (omega/audits.py)
+├── 15_CONTINUITY/          # Handoff & invariant preservation (omega/continuity.py)
+├── 16_TESTS/               # Automated test suite (tests/)
+├── 17_DOCS/                # Specifications & living documentation (docs/)
+│
+├── omega/                  # Primary Python package & core engines
+├── web/                    # Full-Stack Web Server & Glassmorphic UI Dashboard
+│   └── extension/          # Browser VaaS Verification Chrome Extension (Manifest V3)
+├── adapters/               # Universal Language Adapters (Python, JS, TS, Go, Rust)
+├── tests/                  # Complete unittest test suite
+└── .github/workflows/      # GitHub Actions CI continuous verification pipeline
 ```
 
-### Web UI
+---
 
-Start the full-stack server and open the browser at `http://localhost:8000`:
+## ⚡ Quick Start
 
+### 1. Command Line Interface (CLI)
+Run an intent through compilation, verification, authorization, and observation:
 ```bash
-python3 web/server.py
+python cli.py "Observe system state" --evidence "signal present" --consent
+```
+Inspect project continuity state:
+```bash
+python cli.py --continuity
 ```
 
-The web interface will send intent, evidence, and consent to the backend, then render the full progression from IR to ledger events.
+### 2. Full-Stack Web Dashboard & API
+Start the HTTP server:
+```bash
+python web/server.py
+```
+Open **`http://localhost:8000`** in your browser to view the interactive dashboard with live metrics, VaaS benchmark harness, local fallback triggers, and drift audits.
 
-### Continuity endpoint
+### 3. VaaS REST API Endpoints
+- `POST /api/run`: End-to-end intent compilation & execution trace.
+- `POST /api/vaas/verify`: Full VaaS audit, hesitation scoring, and SHA-256 proof token issuance.
+- `GET /api/vaas/proof`: Proof token registry lookup.
+- `GET /api/vaas/benchmark`: Automated simulation of hesitation scores and latency distribution.
+- `POST /api/fallback`: Safe local-first fallback mode execution.
+- `GET /api/audit`: Cumulative system drift audit index.
+- `GET /api/continuity`: Repository continuity health check.
 
-Inspect the living continuity state at `http://localhost:8000/api/continuity`.
+### 4. Chrome Extension (Browser VaaS Verification)
+Load **`web/extension`** as an unpacked extension in `chrome://extensions` to perform instant browser intent verification against `http://localhost:8000/api/vaas/verify`.
+
+### 5. Universal Language Contract Adapters
+- **Python**: [adapters/python/oceanic_adapter.py](file:///c:/Users/pc/OCEANICBLESSINGS-/adapters/python/oceanic_adapter.py)
+- **JavaScript**: [adapters/js/oceanic_adapter.js](file:///c:/Users/pc/OCEANICBLESSINGS-/adapters/js/oceanic_adapter.js)
+- **TypeScript**: [adapters/ts/oceanic_adapter.ts](file:///c:/Users/pc/OCEANICBLESSINGS-/adapters/ts/oceanic_adapter.ts)
+- **Go**: [adapters/go/oceanic_adapter.go](file:///c:/Users/pc/OCEANICBLESSINGS-/adapters/go/oceanic_adapter.go)
+- **Rust**: [adapters/rust/oceanic_adapter.rs](file:///c:/Users/pc/OCEANICBLESSINGS-/adapters/rust/oceanic_adapter.rs)
+
+### 6. Automated Testing & CI/CD
+Execute test discovery:
+```bash
+python -m unittest discover -s tests
+```
+Continuous integration runs automatically on every push via [.github/workflows/verify.yml](file:///c:/Users/pc/OCEANICBLESSINGS-/.github/workflows/verify.yml).
+
+---
+
+## 📜 Canonical Seed Artifacts
+- **[MASTER_PROMPT.md](file:///c:/Users/pc/OCEANICBLESSINGS-/MASTER_PROMPT.md)** — Canonical master seed prompt & cosmological narrative (*Blessings in Disguise*)
+- **[CHARTER.md](file:///c:/Users/pc/OCEANICBLESSINGS-/CHARTER.md)** — Living Agnostic Constitution
+- **[DOCTRINE.md](file:///c:/Users/pc/OCEANICBLESSINGS-/DOCTRINE.md)** — Axioms & master system loop
+- **[BRAND.md](file:///c:/Users/pc/OCEANICBLESSINGS-/BRAND.md)** — Master brand identity
+- **[CONTINUITY_PACK.md](file:///c:/Users/pc/OCEANICBLESSINGS-/CONTINUITY_PACK.md)** — Protocol for cross-environment preservation
